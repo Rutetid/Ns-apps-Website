@@ -5,7 +5,7 @@ const Dashboard = () => {
 		<div className="w-[300px] bg-white">
 			<div className="flex justify-center">
 				<img
-					src="images.png"
+					src="nslogo.jpg"
 					alt=""
 					className="rounded-full border-2 shadow-md h-36 w-36 mt-10 "
 				/>
@@ -34,23 +34,23 @@ const Dashboard = () => {
 					<h1>https://nsappstudio.com</h1>
 				</div>
 				<div className="flex items-center gap-5 font-semibold pt-5">
-					<img src="instagram.svg" alt="" className="w-6 h-6" />
+					<img src="message.svg" alt="" className="w-6 h-6" />
 					<h1>enquiry@nsapps.com</h1>
 				</div>
 				<div className="flex items-center gap-5 font-semibold pt-5">
-					<img src="instagram.svg" alt="" className="w-6 h-6" />
+					<img src="call.svg" alt="" className="w-6 h-6" />
 					<h1>+91 9128712345</h1>
 				</div>
 				<div className="flex items-center gap-5 font-semibold pt-5">
-					<img src="instagram.svg" alt="" className="w-6 h-6" />
+					<img src="calendar.svg" alt="" className="w-6 h-6" />
 					<h1>26 March, 2015</h1>
 				</div>
 				<div className="flex items-center gap-5 font-semibold pt-5">
-					<img src="instagram.svg" alt="" className="w-6 h-6" />
+					<img src="people.svg" alt="" className="w-6 h-6" />
 					<h1>10+ Members</h1>
 				</div>
 				<div className="flex items-center gap-5 font-semibold pt-5 pb-5">
-					<img src="instagram.svg" alt="" className="w-6 h-6" />
+					<img src="calendar.svg" alt="" className="w-6 h-6" />
 					<h1>Active</h1>
 				</div>
 			</div>
