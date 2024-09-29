@@ -1,10 +1,12 @@
 import React from "react";
 import Dashboard from "./CollegeDashboard";
+import PersonPopup from "./PersonPopup";
 
 const CollegeProfile = () => {
 	return (
 		<div className="bg-gradient-to-b from-gray-200 to-pink-100 min-h-screen">
 			<div className="ml-10 flex">
+				<PersonPopup />
 				<Dashboard />
 				<div className="w-6/12">
 					<h1 className="pt-16 pl-10 font-bold font-poppins text-xl">
