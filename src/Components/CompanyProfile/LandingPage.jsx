@@ -1,5 +1,5 @@
 import React from "react";
-import Dashboard from "./Dashboard";
+import Dashboard from "../College Profile/CollegeDashboard";
 
 const LandingPage = () => {
 	return (
@@ -97,7 +97,7 @@ const LandingPage = () => {
 						</div>
 						<div className="flex items-center pt-3 pb-3 pl-5 font-poppins text-sm">
 							<img className="w-5 h-5 mr-2" src="eye.svg" alt="" />
-						 <h1 className="pt-1">views</h1>
+							<h1 className="pt-1">views</h1>
 						</div>
 					</div>
 				</div>
