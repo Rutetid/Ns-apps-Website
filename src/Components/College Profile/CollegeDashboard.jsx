@@ -2,7 +2,7 @@ import React from "react";
 
 const Dashboard = () => {
 	return (
-		<div className="w-[300px] bg-white">
+		<div className="w-[300px] bg-white font-poppins">
 			<div className="flex justify-center">
 				<img
 					src="nslogo.jpg"
@@ -18,12 +18,16 @@ const Dashboard = () => {
 			<div className="flex justify-center">
 				<h1 className="text-sm text-gray-500 ">Samanpura, BIT Campus, Patna</h1>
 			</div>
-
-			<div className="flex items-center p-2 justify-center mb-2 mt-2">
-				<img className="h-8 w-8" src="facebook.svg" alt="" />
-				<img className="h-8 w-8" src="instagram.svg" alt="" />
-				<img className="h-8 w-8" src="linkedin.svg" alt="" />
-				<img className="h-8 w-8" src="location.svg" alt="" />
+			<div className="flex items-center justify-around">
+				<div className="flex items-center p-2 justify-center mb-2 mt-2">
+					<img className="h-8 w-8" src="facebook.svg" alt="" />
+					<img className="h-8 w-8" src="instagram.svg" alt="" />
+					<img className="h-8 w-8" src="linkedin.svg" alt="" />
+					<img className="h-8 w-8" src="location.svg" alt="" />
+				</div>
+				<div className="font-poppins bg-red-500 px-3 py-2 rounded-2xl ">
+					<h1 className="font-bold text-white">Contact</h1>
+				</div>
 			</div>
 			<hr />
 			<div className=" flex-row pl-5">

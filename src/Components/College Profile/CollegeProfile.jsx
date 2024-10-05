@@ -1,19 +1,45 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Dashboard from "./CollegeDashboard";
 import PersonPopup from "./PersonPopup";
 
 const CollegeProfile = () => {
+	const [showProfile , setShowProfile] = useState(false);
+	const popupRef = useRef(null);
+
+	const toggleProfile = () => {
+		setShowProfile(showProfile => !showProfile);
+	};
+
+	const handleClickOutside = (event) => {
+        if (popupRef.current && !popupRef.current.contains(event.target)) {
+            setShowProfile(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
 	return (
 		<div className="bg-gradient-to-b from-gray-200 to-pink-100 min-h-screen">
 			<div className="ml-10 flex">
-				<PersonPopup />
+				
 				<Dashboard />
+
+				{showProfile && (
+                    <div ref={popupRef}>
+                        <PersonPopup />
+                    </div>
+                )}
 				<div className="w-6/12">
 					<h1 className="pt-16 pl-10 font-bold font-poppins text-xl">
 						College Leadership
 					</h1>
 					<div className="flex items-center">
-						<div>
+						<div onClick={toggleProfile}>
 							<img
 								src="person.jpg"
 								alt=""
@@ -24,7 +50,7 @@ const CollegeProfile = () => {
 								Emily
 							</h1>
 						</div>
-						<div>
+						<div onClick={toggleProfile}>
 							<img
 								src="person.jpg"
 								alt=""
@@ -35,7 +61,7 @@ const CollegeProfile = () => {
 								Emily
 							</h1>
 						</div>
-						<div>
+						<div onClick={toggleProfile}>
 							<img
 								src="person.jpg"
 								alt=""
@@ -46,7 +72,7 @@ const CollegeProfile = () => {
 								Emily
 							</h1>
 						</div>
-						<div>
+						<div onClick={toggleProfile}>
 							<img
 								src="person.jpg"
 								alt=""
@@ -57,7 +83,7 @@ const CollegeProfile = () => {
 								Emily
 							</h1>
 						</div>
-						<div>
+						<div onClick={toggleProfile}>
 							<img
 								src="person.jpg"
 								alt=""
@@ -162,7 +188,14 @@ const CollegeProfile = () => {
 				<div className="w-3/12 ml-8 ">
 					<div className="pt-16">
 						<div className="rounded- bg-white mt-8 rounded-lg">
-							<img className="w-96 h-40 rounded-lg" src="courses.jpg" alt="" />
+							<img className="w-96 h-40 rounded-lg object-cover" src="admission.jpg" alt="" />
+							<h1 className="pl-5 pt-4 font-bold font-poppins">Admission process</h1>
+							<h1 className="pl-5 pt-1 text-sm pb-2 ">
+								Learn more about our admission process here and take the first step toward joining our vibrant academic community.
+							</h1>
+						</div>
+						<div className="rounded- bg-white mt-8 rounded-lg">
+							<img className="w-96 h-40 rounded-lg object-cover" src="courses.jpg" alt="" />
 							<h1 className="pl-5 pt-4 font-bold font-poppins">Courses</h1>
 							<h1 className="pl-5 pt-1 text-sm pb-2 ">
 								See all the courses offered here and explore a wide range of
@@ -172,7 +205,7 @@ const CollegeProfile = () => {
 						</div>
 						<div className="rounded- bg-white mt-8 rounded-lg">
 							<img
-								className="w-96 h-40 rounded-lg"
+								className="w-96 h-40 rounded-lg object-cover"
 								src="facilities.jpg"
 								alt=""
 							/>
