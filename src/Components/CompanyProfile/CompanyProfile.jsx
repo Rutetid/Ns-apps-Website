@@ -1,17 +1,46 @@
 import React from "react";
 import Dashboard from "../College Profile/CollegeDashboard";
+import PersonPopup from "./PersonPopup";
+import { useState,useEffect,useRef } from "react";
 
-const LandingPage = () => {
+const CompanyProfile = () => {
+	const [showProfile , setShowProfile] = useState(false);
+	const popupRef = useRef(null);
+
+	const toggleProfile = () => {
+		setShowProfile(showProfile => !showProfile);
+	};
+
+	const handleClickOutside = (event) => {
+        if (popupRef.current && !popupRef.current.contains(event.target)) {
+            setShowProfile(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
 	return (
 		<div className="bg-gradient-to-b from-gray-200 to-pink-100 min-h-screen">
 			<div className="ml-10 flex">
 				<Dashboard />
+
+				{showProfile && (
+                    <div ref={popupRef}>
+                        <PersonPopup />
+                    </div>
+                )}
+
 				<div className="w-6/12">
 					<h1 className="pt-16 pl-10 font-bold font-poppins text-xl">
 						Company Team
 					</h1>
 					<div className="flex items-center">
-						<div>
+						<div onClick={toggleProfile}>
 							<img
 								src="person.jpg"
 								alt=""
@@ -22,7 +51,7 @@ const LandingPage = () => {
 								Emily
 							</h1>
 						</div>
-						<div>
+						<div onClick={toggleProfile}>
 							<img
 								src="person.jpg"
 								alt=""
@@ -33,7 +62,7 @@ const LandingPage = () => {
 								Emily
 							</h1>
 						</div>
-						<div>
+						<div onClick={toggleProfile}>
 							<img
 								src="person.jpg"
 								alt=""
@@ -44,7 +73,7 @@ const LandingPage = () => {
 								Emily
 							</h1>
 						</div>
-						<div>
+						<div onClick={toggleProfile}>
 							<img
 								src="person.jpg"
 								alt=""
@@ -55,7 +84,7 @@ const LandingPage = () => {
 								Emily
 							</h1>
 						</div>
-						<div>
+						<div onClick={toggleProfile}>
 							<img
 								src="person.jpg"
 								alt=""
@@ -105,7 +134,7 @@ const LandingPage = () => {
 					<h1 className="pt-16  font-bold font-poppins text-xl">Services</h1>
 					<div>
 						<div className="rounded- bg-white mt-8 rounded-lg">
-							<img className="w-96 h-32 rounded-lg" src="phone.jpg" alt="" />
+							<img className="w-96 h-32 rounded-lg object-cover" src="phone.jpg" alt="" />
 							<h1 className="pl-5 pt-5 font-bold font-poppins">
 								App Development
 							</h1>
@@ -116,7 +145,7 @@ const LandingPage = () => {
 							</h1>
 						</div>
 						<div className="rounded- bg-white mt-8 rounded-lg">
-							<img className="w-96 h-32 rounded-lg" src="computer.png" alt="" />
+							<img className="w-96 h-32 rounded-lg object-cover" src="computer.jpg" alt="" />
 							<h1 className="pl-5 pt-5 font-bold font-poppins">
 								Web Development
 							</h1>
@@ -133,4 +162,4 @@ const LandingPage = () => {
 	);
 };
 
-export default LandingPage;
+export default CompanyProfile;
