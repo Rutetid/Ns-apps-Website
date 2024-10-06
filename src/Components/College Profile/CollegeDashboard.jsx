@@ -30,14 +30,32 @@ const Dashboard = () => {
 				</div>
 			</div>
 			<hr />
+			<div>
+				<h1 className="font-bold pl-5 pt-3">Rankings</h1>
+				<div className="flex ites-center">
+					<div className="flex items-center gap-5 font-semibold  pl-5">
+						<img src="NIRF.png" alt="" className="w-10 h-10" />
+						<h1 className="">21</h1>
+					</div>
+					<div className="flex items-center gap-5 font-semibold w-16 h-10 pl-5">
+						<img src="NAAC.png" alt="" className="" />
+						<h1 className="">21</h1>
+					</div>
+				</div>
+			</div>
+			<hr />
 			<div className=" flex-row pl-5">
 				<div className="flex items-center gap-5 font-semibold pt-5">
 					<img src="instagram.svg" alt="" className="w-6 h-6" />
-					<h1>https://nsappstudio.com</h1>
+					<h1>
+						<a href="https://nsappstudio.com">https://nsappstudio.com</a>
+					</h1>
 				</div>
 				<div className="flex items-center gap-5 font-semibold pt-5">
 					<img src="message.svg" alt="" className="w-6 h-6" />
-					<h1>enquiry@nsapps.com</h1>
+					<h1>
+						<a href="mailto:enquiry@nsapps.com">enquiry@nsapps.com</a>
+					</h1>
 				</div>
 				<div className="flex items-center gap-5 font-semibold pt-5">
 					<img src="call.svg" alt="" className="w-6 h-6" />

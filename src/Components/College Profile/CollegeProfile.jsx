@@ -1,201 +1,268 @@
 import React, { useState, useEffect, useRef } from "react";
 import Dashboard from "./CollegeDashboard";
 import PersonPopup from "./PersonPopup";
+import AdmissionProcess from "./Services/AdmissionProcess";
+import Courses from "./Services/Courses";
+import Facilities from "./Services/Facilities";
 
 const CollegeProfile = () => {
-	const [showProfile , setShowProfile] = useState(false);
+	const [showAdmission, setShowAdmission] = useState(false);
+	const [showCourses, setShowCourses] = useState(false);
+	const [showFacilities, setShowFacilities] = useState(false);
+	const [showProfile, setShowProfile] = useState(false);
 	const popupRef = useRef(null);
 
 	const toggleProfile = () => {
-		setShowProfile(showProfile => !showProfile);
+		setShowProfile((showProfile) => !showProfile);
 	};
 
 	const handleClickOutside = (event) => {
-        if (popupRef.current && !popupRef.current.contains(event.target)) {
-            setShowProfile(false);
-        }
-    };
+		if (popupRef.current && !popupRef.current.contains(event.target)) {
+			setShowProfile(false);
+		}
+	};
 
-    useEffect(() => {
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
+	useEffect(() => {
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, []);
 
 	return (
 		<div className="bg-sky-50">
 			<div className="ml-10 flex">
-				
 				<Dashboard />
 
 				{showProfile && (
-                    <div ref={popupRef}>
-                        <PersonPopup />
-                    </div>
-                )}
-				<div className="w-6/12">
-					<h1 className="pt-16 pl-10 font-bold font-poppins text-xl">
-						College Leadership
-					</h1>
-					<div className="flex items-center">
-						<div onClick={toggleProfile}>
-							<img
-								src="person.jpg"
-								alt=""
-								className="rounded-full border-2 shadow-md h-20 w-20 mt-5 ml-10 "
-							/>
-							<h1 className=" mt-3  font-poppins font-semibold text-md ml-[58px]">
-								{" "}
-								Emily
-							</h1>
-						</div>
-						<div onClick={toggleProfile}>
-							<img
-								src="person.jpg"
-								alt=""
-								className="rounded-full border-2 shadow-md h-20 w-20 mt-5 ml-5 "
-							/>
-							<h1 className=" mt-3  font-poppins font-semibold text-md ml-9">
-								{" "}
-								Emily
-							</h1>
-						</div>
-						<div onClick={toggleProfile}>
-							<img
-								src="person.jpg"
-								alt=""
-								className="rounded-full border-2 shadow-md h-20 w-20 mt-5 ml-5 "
-							/>
-							<h1 className=" mt-3  font-poppins font-semibold text-md ml-9">
-								{" "}
-								Emily
-							</h1>
-						</div>
-						<div onClick={toggleProfile}>
-							<img
-								src="person.jpg"
-								alt=""
-								className="rounded-full border-2 shadow-md h-20 w-20 mt-5 ml-5 "
-							/>
-							<h1 className=" mt-3  font-poppins font-semibold text-md ml-9">
-								{" "}
-								Emily
-							</h1>
-						</div>
-						<div onClick={toggleProfile}>
-							<img
-								src="person.jpg"
-								alt=""
-								className="rounded-full border-2 shadow-md h-20 w-20 mt-5 ml-5 "
-							/>
-							<h1 className=" mt-3  font-poppins font-semibold text-md ml-9">
-								{" "}
-								Emily
-							</h1>
-						</div>
+					<div ref={popupRef}>
+						<PersonPopup />
 					</div>
+				)}
+				{showAdmission ? (
+					<AdmissionProcess />
+				) : showCourses ? (
+					<Courses />
+				) : showFacilities ? (
+					<Facilities />
+				) : (
+					<div className="w-6/12">
+						<h1 className="pt-16 pl-10 font-bold font-poppins text-xl">
+							College Leadership
+						</h1>
+						<div className="flex items-center">
+							<div onClick={toggleProfile}>
+								<img
+									src="person.jpg"
+									alt=""
+									className="rounded-full border-2 shadow-md h-20 w-20 mt-5 ml-10 "
+								/>
+								<h1 className=" mt-3  font-poppins font-semibold text-md ml-[58px]">
+									{" "}
+									Emily
+								</h1>
+							</div>
+							<div onClick={toggleProfile}>
+								<img
+									src="person.jpg"
+									alt=""
+									className="rounded-full border-2 shadow-md h-20 w-20 mt-5 ml-5 "
+								/>
+								<h1 className=" mt-3  font-poppins font-semibold text-md ml-9">
+									{" "}
+									Emily
+								</h1>
+							</div>
+							<div onClick={toggleProfile}>
+								<img
+									src="person.jpg"
+									alt=""
+									className="rounded-full border-2 shadow-md h-20 w-20 mt-5 ml-5 "
+								/>
+								<h1 className=" mt-3  font-poppins font-semibold text-md ml-9">
+									{" "}
+									Emily
+								</h1>
+							</div>
+							<div onClick={toggleProfile}>
+								<img
+									src="person.jpg"
+									alt=""
+									className="rounded-full border-2 shadow-md h-20 w-20 mt-5 ml-5 "
+								/>
+								<h1 className=" mt-3  font-poppins font-semibold text-md ml-9">
+									{" "}
+									Emily
+								</h1>
+							</div>
+							<div onClick={toggleProfile}>
+								<img
+									src="person.jpg"
+									alt=""
+									className="rounded-full border-2 shadow-md h-20 w-20 mt-5 ml-5 "
+								/>
+								<h1 className=" mt-3  font-poppins font-semibold text-md ml-9">
+									{" "}
+									Emily
+								</h1>
+							</div>
+						</div>
 
-					<h1 className="pt-12 pl-10 font-bold font-poppins text-xl">
-						Showcase
-					</h1>
-					<div className="bg-white ml-10 rounded-md">
-						<div className="mt-5 pt-5 flex justify-between">
-							<div className="flex items-center">
-								<img
-									src="person.jpg"
-									alt=""
-									className="rounded-full border-2 shadow-md h-12 w-12  ml-5 "
-								/>
-								<div className="justify-center font-poppins ml-3 ">
-									<h1 className="text-sm font-bold">Clubs</h1>
-									<h1 className="text-xs">
-										A showcase of out various clubs and their activities
-									</h1>
+						<h1 className="pt-12 pl-10 font-bold font-poppins text-xl">
+							Showcase
+						</h1>
+						<div className="bg-white ml-10 rounded-md">
+							<div className="mt-5 pt-5 flex justify-between">
+								<div className="flex items-center">
+									<img
+										src="person.jpg"
+										alt=""
+										className="rounded-full border-2 shadow-md h-12 w-12  ml-5 "
+									/>
+									<div className="justify-center font-poppins ml-3 ">
+										<h1 className="text-sm font-bold">Clubs</h1>
+										<h1 className="text-xs">
+											A showcase of out various clubs and their activities
+										</h1>
+									</div>
+								</div>
+								<div className="pr-8 pt-2">
+									<img src="three-dots.png" alt="" className="w-5 h-5" />
 								</div>
 							</div>
-							<div className="pr-8 pt-2">
-								<img src="three-dots.png" alt="" className="w-5 h-5" />
+							<div className="flex items-center mt-5 ml-5 gap-3 mr-10 ">
+								<img className="rounded-md h-52 w-52" src="cafe.jpg" alt="" />
+								<img className="rounded-md h-52 w-52" src="laptop.jpg" alt="" />
+								<img
+									className="rounded-md h-52 w-52"
+									src="office.jpeg"
+									alt=""
+								/>
+							</div>
+							<div className="flex items-center pt-3 pb-3 pl-5 font-poppins text-sm">
+								<img className="w-5 h-5 mr-2" src="eye.svg" alt="" />
+								<h1 className="pt-1">views</h1>
 							</div>
 						</div>
-						<div className="flex items-center mt-5 ml-5 gap-3 mr-10 ">
-							<img className="rounded-md h-52 w-52" src="cafe.jpg" alt="" />
-							<img className="rounded-md h-52 w-52" src="laptop.jpg" alt="" />
-							<img className="rounded-md h-52 w-52" src="office.jpeg" alt="" />
-						</div>
-						<div className="flex items-center pt-3 pb-3 pl-5 font-poppins text-sm">
-							<img className="w-5 h-5 mr-2" src="eye.svg" alt="" />
-							<h1 className="pt-1">views</h1>
-						</div>
-					</div>
-					<div className="bg-white ml-10 rounded-md">
-						<div className="mt-5 pt-5 flex justify-between">
-							<div className="flex items-center">
-								<img
-									src="person.jpg"
-									alt=""
-									className="rounded-full border-2 shadow-md h-12 w-12  ml-5 "
-								/>
-								<div className="justify-center font-poppins ml-3 ">
-									<h1 className="text-sm font-bold">Events/Actvities</h1>
-									<h1 className="text-xs">
-										A showcase of out latest events and their activities
-									</h1>
+						<div className="bg-white ml-10 rounded-md">
+							<div className="mt-5 pt-5 flex justify-between">
+								<div className="flex items-center">
+									<img
+										src="person.jpg"
+										alt=""
+										className="rounded-full border-2 shadow-md h-12 w-12  ml-5 "
+									/>
+									<div className="justify-center font-poppins ml-3 ">
+										<h1 className="text-sm font-bold">Events/Actvities</h1>
+										<h1 className="text-xs">
+											A showcase of out latest events and their activities
+										</h1>
+									</div>
+								</div>
+								<div className="pr-8 pt-2">
+									<img src="three-dots.png" alt="" className="w-5 h-5" />
 								</div>
 							</div>
-							<div className="pr-8 pt-2">
-								<img src="three-dots.png" alt="" className="w-5 h-5" />
+							<div className="flex items-center mt-5 ml-5 gap-3 mr-10 ">
+								<img className="rounded-md h-52 w-52" src="cafe.jpg" alt="" />
+								<img className="rounded-md h-52 w-52" src="laptop.jpg" alt="" />
+								<img
+									className="rounded-md h-52 w-52"
+									src="office.jpeg"
+									alt=""
+								/>
+							</div>
+							<div className="flex items-center pt-3 pb-3 pl-5 font-poppins text-sm">
+								<img className="w-5 h-5 mr-2" src="eye.svg" alt="" />
+								<h1 className="pt-1">views</h1>
 							</div>
 						</div>
-						<div className="flex items-center mt-5 ml-5 gap-3 mr-10 ">
-							<img className="rounded-md h-52 w-52" src="cafe.jpg" alt="" />
-							<img className="rounded-md h-52 w-52" src="laptop.jpg" alt="" />
-							<img className="rounded-md h-52 w-52" src="office.jpeg" alt="" />
-						</div>
-						<div className="flex items-center pt-3 pb-3 pl-5 font-poppins text-sm">
-							<img className="w-5 h-5 mr-2" src="eye.svg" alt="" />
-							<h1 className="pt-1">views</h1>
-						</div>
-					</div>
-					<div className="bg-white ml-10 rounded-md">
-						<div className="mt-5 pt-5 flex justify-between">
-							<div className="flex items-center">
-								<img
-									src="person.jpg"
-									alt=""
-									className="rounded-full border-2 shadow-md h-12 w-12  ml-5 "
-								/>
-								<div className="justify-center font-poppins ml-3 ">
-									<h1 className="text-sm font-bold">Gallery</h1>
-									<h1 className="text-xs">A showcase of our gallery</h1>
+						<div className="bg-white ml-10 rounded-md">
+							<div className="mt-5 pt-5 flex justify-between">
+								<div className="flex items-center">
+									<img
+										src="person.jpg"
+										alt=""
+										className="rounded-full border-2 shadow-md h-12 w-12  ml-5 "
+									/>
+									<div className="justify-center font-poppins ml-3 ">
+										<h1 className="text-sm font-bold">Gallery</h1>
+										<h1 className="text-xs">A showcase of our gallery</h1>
+									</div>
+								</div>
+								<div className="pr-8 pt-2">
+									<img src="three-dots.png" alt="" className="w-5 h-5" />
 								</div>
 							</div>
-							<div className="pr-8 pt-2">
-								<img src="three-dots.png" alt="" className="w-5 h-5" />
+							<div className="flex items-center mt-5 ml-5 gap-3 mr-10 ">
+								<img className="rounded-md h-52 w-52" src="cafe.jpg" alt="" />
+								<img className="rounded-md h-52 w-52" src="laptop.jpg" alt="" />
+								<img
+									className="rounded-md h-52 w-52"
+									src="office.jpeg"
+									alt=""
+								/>
+							</div>
+							<div className="flex items-center pt-3 pb-3 pl-5 font-poppins text-sm">
+								<img className="w-5 h-5 mr-2" src="eye.svg" alt="" />
+								<h1 className="pt-1">views</h1>
 							</div>
 						</div>
-						<div className="flex items-center mt-5 ml-5 gap-3 mr-10 ">
-							<img className="rounded-md h-52 w-52" src="cafe.jpg" alt="" />
-							<img className="rounded-md h-52 w-52" src="laptop.jpg" alt="" />
-							<img className="rounded-md h-52 w-52" src="office.jpeg" alt="" />
-						</div>
-						<div className="flex items-center pt-3 pb-3 pl-5 font-poppins text-sm">
-							<img className="w-5 h-5 mr-2" src="eye.svg" alt="" />
-							<h1 className="pt-1">views</h1>
-						</div>
 					</div>
-				</div>
+				)}
+
 				<div className="w-3/12 ml-8 ">
 					<div className="pt-16">
-						<div className="rounded- bg-white mt-8 rounded-lg">
-							<img className="w-96 h-40 rounded-lg object-cover" src="admission.jpg" alt="" />
-							<h1 className="pl-5 pt-4 font-bold font-poppins">Admission process</h1>
+						<div
+							className="rounded- bg-white mt-8 rounded-lg"
+							onClick={() => {
+								setShowAdmission(!showAdmission);
+								setShowCourses(false);
+								setShowFacilities(false);
+							}}
+							onKeyDown={(e) => {
+								if (e.key === "Enter" || e.key === " ") {
+									setShowAdmission(!showAdmission);
+									setShowCourses(false);
+									setShowFacilities(false);
+								}
+							}}
+							tabIndex="0"
+						>
+							<img
+								className="w-96 h-40 rounded-lg object-cover"
+								src="admission.jpg"
+								alt=""
+							/>
+							<h1 className="pl-5 pt-4 font-bold font-poppins">
+								Admission process
+							</h1>
 							<h1 className="pl-5 pt-1 text-sm pb-2 ">
-								Learn more about our admission process here and take the first step toward joining our vibrant academic community.
+								Learn more about our admission process here and take the first
+								step toward joining our vibrant academic community.
 							</h1>
 						</div>
-						<div className="rounded- bg-white mt-8 rounded-lg">
-							<img className="w-96 h-40 rounded-lg object-cover" src="courses.jpg" alt="" />
+						<div
+							className="rounded- bg-white mt-8 rounded-lg"
+							onClick={() => {
+								setShowCourses(!showCourses);
+								setShowAdmission(false);
+								setShowFacilities(false);
+							}}
+							onKeyDown={(e) => {
+								if (e.key === "Enter" || e.key === " ") {
+									setShowCourses(!showCourses);
+									setShowAdmission(false);
+									setShowFacilities(false);
+								}
+							}}
+							tabIndex="0"
+						>
+							<img
+								className="w-96 h-40 rounded-lg object-cover"
+								src="courses.jpg"
+								alt=""
+							/>
 							<h1 className="pl-5 pt-4 font-bold font-poppins">Courses</h1>
 							<h1 className="pl-5 pt-1 text-sm pb-2 ">
 								See all the courses offered here and explore a wide range of
@@ -203,7 +270,22 @@ const CollegeProfile = () => {
 								career goals.
 							</h1>
 						</div>
-						<div className="rounded- bg-white mt-8 rounded-lg">
+						<div
+							className="rounded- bg-white mt-8 rounded-lg"
+							onClick={() => {
+								setShowFacilities(!showFacilities);
+								setShowAdmission(false);
+								setShowCourses(false);
+							}}
+							onKeyDown={(e) => {
+								if (e.key === "Enter" || e.key === " ") {
+									setShowFacilities(!showFacilities);
+									setShowAdmission(false);
+									setShowCourses(false);
+								}
+							}}
+							tabIndex="0"
+						>
 							<img
 								className="w-96 h-40 rounded-lg object-cover"
 								src="facilities.jpg"

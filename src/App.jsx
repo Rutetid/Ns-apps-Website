@@ -5,7 +5,7 @@ import CollegeProfile from "./Components/College Profile/CollegeProfile";
 const App = () => {
 	return (
 		<div className="">
-			<CollegeProfile />
+			<CompanyProfile />
 		</div>
 	);
 };
