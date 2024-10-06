@@ -24,7 +24,7 @@ const CollegeProfile = () => {
     }, []);
 
 	return (
-		<div className="bg-gradient-to-b from-gray-200 to-pink-100 min-h-screen">
+		<div className="bg-sky-50">
 			<div className="ml-10 flex">
 				
 				<Dashboard />

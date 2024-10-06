@@ -2,7 +2,7 @@ import React from "react";
 
 const Dashboard = () => {
 	return (
-		<div className="w-[300px] bg-white font-poppins">
+		<div className="w-[300px] bg-white font-poppins shadow-lg shadow-gray-400">
 			<div className="flex justify-center">
 				<img
 					src="nslogo.jpg"
