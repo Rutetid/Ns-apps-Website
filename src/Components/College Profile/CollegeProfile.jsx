@@ -30,15 +30,10 @@ const CollegeProfile = () => {
 	}, []);
 
 	return (
-		<div className="bg-sky-50">
-			<div className="ml-10 flex">
+		<div className="bg-sky-50 ">
+			<div className={`ml-10 flex ${showProfile ? "blur-sm" : ""}`}>
 				<Dashboard />
 
-				{showProfile && (
-					<div ref={popupRef}>
-						<PersonPopup />
-					</div>
-				)}
 				{showAdmission ? (
 					<AdmissionProcess />
 				) : showCourses ? (
@@ -108,7 +103,7 @@ const CollegeProfile = () => {
 							</div>
 						</div>
 
-						<h1 className="pt-12 pl-10 font-bold font-poppins text-xl">
+						<h1 className="pt-12 pl-10 font-bold font-poppins text-xl ">
 							Showcase
 						</h1>
 						<div className="bg-white ml-10 rounded-md">
@@ -144,7 +139,7 @@ const CollegeProfile = () => {
 								<h1 className="pt-1">views</h1>
 							</div>
 						</div>
-						<div className="bg-white ml-10 rounded-md">
+						<div className="bg-white ml-10 rounded-md ">
 							<div className="mt-5 pt-5 flex justify-between">
 								<div className="flex items-center">
 									<img
@@ -203,7 +198,7 @@ const CollegeProfile = () => {
 									alt=""
 								/>
 							</div>
-							<div className="flex items-center pt-3 pb-3 pl-5 font-poppins text-sm">
+							<div className="flex items-center pt-3 pb-3 pl-5 font-poppins text-sm mb-10">
 								<img className="w-5 h-5 mr-2" src="eye.svg" alt="" />
 								<h1 className="pt-1">views</h1>
 							</div>
@@ -212,7 +207,7 @@ const CollegeProfile = () => {
 				)}
 
 				<div className="w-3/12 ml-8 ">
-					<div className="pt-16">
+					<div className="pt-16 pb-10">
 						<div
 							className="rounded- bg-white mt-8 rounded-lg"
 							onClick={() => {
@@ -418,6 +413,11 @@ const CollegeProfile = () => {
 					</div>
 				</div>
 			</div>
+			{showProfile && (
+				<div ref={popupRef} className="z-">
+					<PersonPopup />
+				</div>
+			)}
 		</div>
 	);
 };

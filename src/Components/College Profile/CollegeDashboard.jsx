@@ -41,6 +41,10 @@ const Dashboard = () => {
 						<img src="NAAC.png" alt="" className="" />
 						<h1 className="">21</h1>
 					</div>
+					<div className="flex items-center gap-5 font-semibold w-16  pl-10 ml-2">
+						<img src="great place to work.png" alt="" className="" />
+						<h1 className="">21</h1>
+					</div>
 				</div>
 			</div>
 			<hr />
