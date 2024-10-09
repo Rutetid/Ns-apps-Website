@@ -14,7 +14,7 @@ const PersonPopup = () => {
 					<h1>Department of Physics</h1>
 				</div>
 				<div className="flex items-center justify-center rounded-lg   border-black">
-					<img src="LinkedinLogo.png" alt="" className="mt-2 p-1 h-9 border border-black rounded-lg" />
+					<img src="LinkedinLogo.png" alt="" className="mt-2 p-1 h-9 rounded-lg" />
 					
 				</div>
 			</div>

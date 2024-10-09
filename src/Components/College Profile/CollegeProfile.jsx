@@ -106,7 +106,7 @@ const CollegeProfile = () => {
 						<h1 className="pt-12 pl-10 font-bold font-poppins text-xl ">
 							Showcase
 						</h1>
-						<div className="bg-white ml-10 rounded-md">
+						<div className="bg-white/10  shadow-lg  backdrop-blur-md ml-10 rounded-md">
 							<div className="mt-5 pt-5 flex justify-between">
 								<div className="flex items-center">
 									<img
